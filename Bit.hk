@@ -1,11 +1,25 @@
 [package]
--> name    => hprompt
--> version => 0.1.0
+-> name        => hprompt
+-> version     => 0.1.0
 -> description => Line-editing & history for H#, in the spirit of Rust's rustyline.
--> license => Apache-2.0
+-> authors     => ["Bit Developers"]
+-> license     => Apache-2.0
+-> lang        => h#
+
+[edition]
+-> edition => 2026
+
+[layout]
+-> src => src
 
 [build]
--> lang   => h#
--> entry  => src/lib.h#
--> output => build/libhprompt
--> emit   => lib
+-> link => static
+
+[lib]
+-> output => hlib
+
+[pack]
+-> contents    => [hlib, sources, docs]
+-> compression => zstd
+
+[dependencies]
